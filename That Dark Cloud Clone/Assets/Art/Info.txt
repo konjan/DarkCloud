@@ -1,0 +1,10 @@
+Models & their textures/materials are kept within the Model folder
+
+They should be strictly organised, with all materials relative to certain objects
+being kept alongside the rest of the object.
+
+Wide use Materials are to be kept in the Materials folder
+
+Shaders are kept in the Shader folder
+
+Any data relating to main characters are kept in the "/Assets/Characters" folder in
