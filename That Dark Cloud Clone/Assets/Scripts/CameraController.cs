@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour {
 
 	private void RotationUpdate()
 	{
-		rotationX += Input.GetAxis("RightHorizontal") * Sensitivity.x;
+		rotationX -= Input.GetAxis("RightHorizontal") * Sensitivity.x;
 		rotationY += Input.GetAxis("RightVertical") * Sensitivity.y;
 
 		rotationY = Mathf.Clamp(rotationY, 4, 55);
