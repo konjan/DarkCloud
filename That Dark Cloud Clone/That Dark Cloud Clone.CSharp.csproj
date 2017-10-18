@@ -81,11 +81,13 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Cards\Card.cs" />
     <Compile Include="Assets\Scripts\Cards\CardAbility.cs" />
+    <Compile Include="Assets\Scripts\ConstructPiece.cs" />
     <Compile Include="Assets\Scripts\DungeonGen.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GridControl.cs" />
+    <Compile Include="Assets\Scripts\GridSection.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\RoomData.cs" />
-    <Compile Include="Assets\TempCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Art\Info.txt" />

@@ -4,11 +4,14 @@ using UnityEngine.Events;
 
 public class Movement : MonoBehaviour {
 
+	private GameManager m_GM;
+
 	private Rigidbody rb;
 	//public Animator anim;
 	public AnimationCurve speedCurve;
 	public float accerateTime = 1.0f;
 
+	private float moveSpeedModifier = 1.0f;
 	private float speedModifier = 0.1f;
 	private Vector3 previousDirection = Vector3.zero;
 	private float currentAccelerateTime = 0.0f;
@@ -23,6 +26,7 @@ public class Movement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		m_GM = GameObject.Find("GameManager").GetComponent<GameManager>();
 		//anim = gameObject.GetComponent<Animator>();
 		rb = gameObject.GetComponent<Rigidbody>();
 	}
@@ -31,6 +35,10 @@ public class Movement : MonoBehaviour {
 	void Update ()
 	{
 		//anim.SetFloat("Movement", Input.GetAxis("LeftVertical"));
+		if (m_GM.GameMode == Mode.TownMode || m_GM.GameMode == Mode.DungeonMode)
+			moveSpeedModifier = 1.0f;
+		else
+			moveSpeedModifier = 4.0f;
 	}
 
 	void FixedUpdate()
@@ -87,8 +95,8 @@ public class Movement : MonoBehaviour {
 			desiredDir = controlRotationModifier * desiredDir;
 
 
-			Vector3 forwardOffset = controlRotationModifier * new Vector3(0, 0, 1) * Input.GetAxis("LeftVertical") * 5 * Time.deltaTime;
-			Vector3 rightOffset = controlRotationModifier * new Vector3(-1, 0, 0) * -Input.GetAxis("LeftHorizontal") * 5 * Time.deltaTime;
+			Vector3 forwardOffset = controlRotationModifier * new Vector3(0, 0, 1) * Input.GetAxis("LeftVertical") * moveSpeedModifier * 5 * Time.deltaTime;
+			Vector3 rightOffset = controlRotationModifier * new Vector3(-1, 0, 0) * -Input.GetAxis("LeftHorizontal") * moveSpeedModifier * 5 * Time.deltaTime;
 
 			//-----Move Player in the direction of the joystick input
 			Vector3 moveDir = forwardOffset + rightOffset;
